@@ -36,7 +36,7 @@ function jump(){
     var jumpInterval = setInterval(function(){
         var characterTop = 
         parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-        if((characterTop>6)&&(counter<15)){
+        if((characterTop>6)&&(counter<1000000)){
             character.style.top = (characterTop-5)+"px";
         }
         if(jumpCount>20){
@@ -47,4 +47,7 @@ function jump(){
         jumpCount ++;
     },10);
 }
- 
+
+function resetScore() {
+    scoreTotal = 0
+}
