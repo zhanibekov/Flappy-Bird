@@ -1,40 +1,135 @@
+@import url(//db.onlinewebfonts.com/c/b2e75c336df191233b3096682c9ee6be?family=PixelarRegularW01-Regular);
+
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
+    overflow: hidden;     
+    
+    font-family: PixelarRegularW01-Regular;
+    color: white;
+    font-size: 30px;
+    font-weight: normal;
 }
-#game{
-    width: 400px;
-    height: 500px;
-    border: 1px solid black;
-    margin: auto;
+body{
+    margin: 0;
     overflow: hidden;
 }
-#block{
-    width: 50px;
-    height: 500px;
-    background-color: chartreuse;
-    position: relative;
-    left: 400px;
-    animation: block 2s  infinite linear;
+#score{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-family: "PixelarRegularW01-Regular";
+    font-size: 30px;
+    font-weight: normal;
 }
-@keyframes block{
-    0%{left: 400px;}
-    100%{left:-50%}
+#gameoverscreen{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#gameoverscreen .backdrop{
+    background: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+#gameoverscreen .tittle,
+#gameoverscreen .score,
+#gameoverscreen button{
+    position: absolute;
+    z-index: 1;
+    left: calc(50% - 102px);
+    width: 205px;
+    top: 40%;
+    text-align: center;
+    color: rgb(255, 255, 74);
+    font-family: 'PixelarRegularW01-Regular';
+    font-weight: normal;
+
+}
+#gameoverscreen .tittle {
+    margin-top: -65px;
+    font-size: 50px;
+}
+#gameoverscreen button{
+    margin-top: 50px;
+    color: black;
+    font-size: 24px;
+    padding: 5px 25px;
+    cursor: pointer;
+    border: 0;
+}
+#star {
+    width: 35px;
+    height: 35px; 
+    background: url('img/star.png');
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+}   
+#game{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url('img/world.jpg');
+    background-position: center left;
+}
+#block {
+    width: 45px;
+    height: 90vh;
+    background: url('img/blockbg.jpg');
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    animation: blockAnimation 2s infinite;
 }
 #hole{
-    width: 50px;
-    height: 150px;
-    background-color:rgb(255, 255, 255);
+    width: 46px;
+    height: 193px;
+    background: url('img/holebg.jpg');
+    background-size: contain;
     position: relative;
-    left: 400px;
     top: -500px;
-    animation: block 2s  infinite linear;
+    background-repeat: no-repeat;
+}
+#block, #hole {
+    left: 40vw;
+    animation: blockAnimation 2s infinite linear;
 }
 #character {
-    width: 20px;
-    height: 20px;
-    background-color:yellow;
+    width: 40px;
+    height: 30px;
     position: absolute;
-    top: 100px;
     border-radius: 50%;
+    background:  url('img/bird.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 20vh;
+    left: 20vw;
+}
+.go-up {
+    animation: rotateUp 0.2s;
+    animation-fill-mode: forwards;
+}
+.go-down {
+    animation:  rotateDown 0.2s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes blockAnimation{
+    0% { left: 100vw; }
+    100% {left: -50px; }
+    
+}
+ @keyframes rotateUp {
+     0% { transform: rotate(0deg)}
+     100% {transform: rotate(-35deg)}
+ }
+ @keyframes rotateDown {
+    0% { transform: rotate(0deg)}
+    100% {transform: rotate(35deg);}
 }
