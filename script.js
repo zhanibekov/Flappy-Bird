@@ -60,5 +60,9 @@ function play() {
                 }
             }
         });
+        requestAnimationFrame(move);
     }
+    requestAnimationFrame(move);
+
+
 }
